@@ -36,6 +36,10 @@ function openViewer(e) {
     targetImg.src = e.target.src;
     overlayDiv.style.display = 'flex';
     overlayDiv.append(targetImg);
+
+    let closeBtn = document.createElement('div');
+    closeBtn.classList.add("close-button");
+    overlayDiv.append(closeBtn);
 }
 
 overlayDiv.addEventListener('click', () => {

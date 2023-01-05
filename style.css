@@ -19,8 +19,11 @@ main {
 
 .gallery img {
     max-width: 10rem;
-    object-fit: contain;
+    object-fit: fill;
 }
+
+.gallery img:hover { cursor: pointer; }
+
 
 .overlay {
     position: fixed; /* Sit on top of the page content */
@@ -34,9 +37,28 @@ main {
     background-color: rgba(0,0,0,0.7); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     justify-content: center;
-    padding: 1rem 0;
+    padding: 1rem 1rem;
 }
 
 .overlay img {
     object-fit: contain;
+}
+
+.close-button {
+    position: absolute;
+    top: 0; 
+    right: 0;
+    padding: 0 0.5rem;
+    font-size: 2.5rem;
+    color: whitesmoke;
+    transition: 0.25s opacity;
+}
+
+.close-button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.close-button:before {
+    content: "\00d7"; /* This will render the 'X' */
 }
