@@ -17,9 +17,25 @@ const galleryDiv = document.querySelector('.gallery');
 
 imgDb.forEach((img, i) => {
     let newImg = document.createElement("img");
+    newImg.addEventListener('click', openViewer);
     newImg.id = i+1;
     newImg.classList.add("gallery-image");
     newImg.src = img.src;
     newImg.alt = img.desc;
     galleryDiv.append(newImg);
+})
+
+const overlayDiv = document.querySelector('.overlay');
+let displayOverlay = false;
+
+function openViewer(e) {
+    let targetImg = document.createElement('img');
+    targetImg.src = e.target.src;
+    overlayDiv.style.display = 'block';
+    overlayDiv.append(targetImg);
+}
+
+overlayDiv.addEventListener('click', () => {
+    overlayDiv.removeChild(overlayDiv.firstChild);
+    overlayDiv.style.display = 'none';
 })
