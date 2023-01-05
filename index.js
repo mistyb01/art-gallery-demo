@@ -20,7 +20,6 @@ const galleryDiv = document.querySelector('.gallery');
 
 imgDb.forEach((img, i) => {
     let newImg = document.createElement("img");
-    newImg.addEventListener('click', openViewer);
     newImg.id = i;
     newImg.classList.add("gallery-image");
     newImg.src = img.src;
@@ -32,13 +31,34 @@ const overlayDiv = document.querySelector('.overlay');
 let displayOverlay = false;
 let currentImgIndex;
 
-function openViewer(e) {
-    let targetImg = document.createElement('img');
-    targetImg.src = e.target.src;
-    currentImgIndex = e.target.id;
+galleryDiv.addEventListener('click', (e) => {
+    if (e.target.className == 'gallery-image') {
+        currentImgIndex = parseInt(e.target.id);
+        openShowbox(imgDb[e.target.id]);
+    }
+})
+overlayDiv.addEventListener('click', (e) => {
+    if (e.target.className == 'right-button') {
+        currentImgIndex++;
+        let nextImg = imgDb[currentImgIndex];
+        openShowbox(nextImg);
+    } else if (e.target.className == 'left-button') {
+        currentImgIndex--;
+        let prevImg = imgDb[currentImgIndex];
+        openShowbox(prevImg);
+    } else {
+        overlayDiv.replaceChildren();
+        overlayDiv.style.display = 'none';
+    }
+})
+
+function openShowbox(img) {
+    overlayDiv.replaceChildren();
+    let currentImg = document.createElement('img');
+    currentImg.src = img.src;
 
     overlayDiv.style.display = 'flex';
-    overlayDiv.append(targetImg);
+    overlayDiv.append(currentImg);
 
     let closeBtn = document.createElement('button');
     closeBtn.classList.add("close-button");
@@ -52,20 +72,7 @@ function openViewer(e) {
     rightBtn.classList.add('right-button');
     arrowBtns.classList.add("arrow-buttons");
 
-    if (imgDb.length > 1 && parseInt(currentImgIndex) >= 1) arrowBtns.append(leftBtn);
-    if (parseInt(currentImgIndex) + 1 != imgDb.length) arrowBtns.append(rightBtn);
-    overlayDiv.append(arrowBtns);
+    if (imgDb.length > 1 && currentImgIndex >= 1) arrowBtns.append(leftBtn);
+    if (currentImgIndex + 1 != imgDb.length) arrowBtns.append(rightBtn);
+    overlayDiv.append(arrowBtns); 
 }
-
-overlayDiv.addEventListener('click', (e) => {
-    if (e.target.className == 'right-button') {
-        let nextImg = imgDb[parseInt(currentImgIndex) + 1];
-        console.log(nextImg);
-    } else if (e.target.className == 'left-button') {
-        let prevImg = imgDb[parseInt(currentImgIndex) - 1];
-        console.log(prevImg);
-    } else {
-        overlayDiv.replaceChildren();
-        overlayDiv.style.display = 'none';
-    }
-})

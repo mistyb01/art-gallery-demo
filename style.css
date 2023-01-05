@@ -76,3 +76,9 @@ button {
 .left-button:before {
     content: "<";
 }
+
+.arrow-buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
