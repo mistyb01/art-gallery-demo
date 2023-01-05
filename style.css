@@ -17,7 +17,7 @@ main {
     grid-template-rows: auto;
 }
 
-img {
+.gallery img {
     max-width: 10rem;
     object-fit: contain;
 }
@@ -33,4 +33,10 @@ img {
     bottom: 0;
     background-color: rgba(0,0,0,0.7); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  }
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.overlay img {
+    object-fit: contain;
+}

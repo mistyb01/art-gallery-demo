@@ -10,7 +10,10 @@ const imgDb = [
     src: "images/sunsettrees.jpg"},
     {title: "Lightning",
     desc: "lightning beams",
-    src: "images/lightning.jpg"}
+    src: "images/lightning.jpg"},
+    {title: "Vash",
+    desc: "vash the stampede",
+    src: "images/vash.jpg"},
 ]
 
 const galleryDiv = document.querySelector('.gallery');
@@ -31,11 +34,11 @@ let displayOverlay = false;
 function openViewer(e) {
     let targetImg = document.createElement('img');
     targetImg.src = e.target.src;
-    overlayDiv.style.display = 'block';
+    overlayDiv.style.display = 'flex';
     overlayDiv.append(targetImg);
 }
 
 overlayDiv.addEventListener('click', () => {
-    overlayDiv.removeChild(overlayDiv.firstChild);
+    overlayDiv.replaceChildren();
     overlayDiv.style.display = 'none';
 })
