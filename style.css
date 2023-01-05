@@ -46,6 +46,10 @@ main {
     object-fit:contain;
 }
 
+button {
+    background: transparent;
+}
+
 .close-button {
     position: absolute;
     top: 0; 
@@ -63,4 +67,12 @@ main {
 
 .close-button:before {
     content: "\00d7"; /* This will render the 'X' */
+}
+
+.right-button:before {
+    content: ">";
+}
+
+.left-button:before {
+    content: "<";
 }
