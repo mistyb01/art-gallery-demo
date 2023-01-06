@@ -34,10 +34,9 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.7); /* Black background with opacity */
+    background-color: rgba(0,0,0,0.8); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     justify-content: center;
-    padding: 1rem 1rem;
 }
 
 .overlay img {
@@ -48,6 +47,15 @@ main {
 
 button {
     background: transparent;
+    border: none;
+    color: whitesmoke;
+    transition: 0.25s opacity;
+    opacity: 0.5;
+}
+
+button:hover {
+    opacity: 1;
+    cursor: pointer;
 }
 
 .close-button {
@@ -56,29 +64,32 @@ button {
     right: 0;
     padding: 0 0.5rem;
     font-size: 2.5rem;
-    color: whitesmoke;
-    transition: 0.25s opacity;
-}
-
-.close-button:hover {
-    opacity: 0.5;
-    cursor: pointer;
 }
 
 .close-button:before {
     content: "\00d7"; /* This will render the 'X' */
 }
 
+.arrow-buttons button {
+    font-size: 2rem; 
+}
+
+.right-button {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+}
+
+.left-button {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+}
+
 .right-button:before {
-    content: ">";
+    content: "▸";
 }
 
 .left-button:before {
-    content: "<";
-}
-
-.arrow-buttons {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    content: "◂";
 }
