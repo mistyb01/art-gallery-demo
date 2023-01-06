@@ -1,19 +1,22 @@
 const imgDb = [
     {title: "Seagulls",
     desc: "seagulls on a rock",
-    src: "images/gulls.jpg"},
+    src: "images/desert.jpg"},
     {title: "Sunset Cliff",
     desc: "forest cliff bathed in sunset",
-    src: "images/sunsetcliff.jpg"},
+    src: "images/green-crystal.jpg"},
     {title: "Sunset trees",
     desc: "misty orange trees",
-    src: "images/sunsettrees.jpg"},
+    src: "images/minish-village.jpg"},
     {title: "Lightning",
     desc: "lightning beams",
-    src: "images/lightning.jpg"},
+    src: "images/sky-palace.jpg"},
     {title: "Vash",
     desc: "vash the stampede",
-    src: "images/vash.jpg"},
+    src: "images/temple-lantern.jpg"},
+    {title: "Vash",
+    desc: "vash the stampede",
+    src: "images/slidey.jpg"}
 ]
 
 const galleryDiv = document.querySelector('.gallery');
