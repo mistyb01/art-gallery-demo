@@ -39,13 +39,9 @@ galleryDiv.addEventListener('click', (e) => {
 })
 overlayDiv.addEventListener('click', (e) => {
     if (e.target.className == 'right-button') {
-        currentImgIndex++;
-        let nextImg = imgDb[currentImgIndex];
-        openShowbox(nextImg);
+        nextImg();
     } else if (e.target.className == 'left-button') {
-        currentImgIndex--;
-        let prevImg = imgDb[currentImgIndex];
-        openShowbox(prevImg);
+        prevImg();
     } else {
         displayOverlay = false;
         overlayDiv.replaceChildren();
@@ -81,12 +77,20 @@ function openShowbox(img) {
 
 document.onkeydown = function(e) {
     if (e.key == 'ArrowLeft' && displayOverlay && currentImgIndex > 0) {
-        currentImgIndex--;
-        let prevImg = imgDb[currentImgIndex];
-        openShowbox(prevImg);
+        prevImg();
     } else if (e.key == 'ArrowRight' && displayOverlay && currentImgIndex < imgDb.length - 1) {
-        currentImgIndex++;
-        let nextImg = imgDb[currentImgIndex];
-        openShowbox(nextImg);
+        nextImg();
     }
+}
+
+function prevImg() {
+    currentImgIndex--;
+    let prevImg = imgDb[currentImgIndex];
+    openShowbox(prevImg);
+}
+
+function nextImg() {
+    currentImgIndex++;
+    let nextImg = imgDb[currentImgIndex];
+    openShowbox(nextImg);
 }
