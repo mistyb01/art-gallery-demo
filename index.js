@@ -47,12 +47,14 @@ overlayDiv.addEventListener('click', (e) => {
         let prevImg = imgDb[currentImgIndex];
         openShowbox(prevImg);
     } else {
+        displayOverlay = false;
         overlayDiv.replaceChildren();
         overlayDiv.style.display = 'none';
     }
 })
 
 function openShowbox(img) {
+    displayOverlay =  true;
     overlayDiv.replaceChildren();
     let currentImg = document.createElement('img');
     currentImg.src = img.src;
@@ -75,4 +77,16 @@ function openShowbox(img) {
     if (imgDb.length > 1 && currentImgIndex >= 1) arrowBtns.append(leftBtn);
     if (currentImgIndex + 1 != imgDb.length) arrowBtns.append(rightBtn);
     overlayDiv.append(arrowBtns); 
+}
+
+document.onkeydown = function(e) {
+    if (e.key == 'ArrowLeft' && displayOverlay && currentImgIndex > 0) {
+        currentImgIndex--;
+        let prevImg = imgDb[currentImgIndex];
+        openShowbox(prevImg);
+    } else if (e.key == 'ArrowRight' && displayOverlay && currentImgIndex < imgDb.length - 1) {
+        currentImgIndex++;
+        let nextImg = imgDb[currentImgIndex];
+        openShowbox(nextImg);
+    }
 }
