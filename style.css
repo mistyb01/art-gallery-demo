@@ -6,13 +6,13 @@
 
 body {
     background-color: aquamarine;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 main {
     width: 70%;
     height: auto;
     margin: 0 auto;
-    overflow: hidden;
 }
 
 .gallery {
@@ -24,10 +24,14 @@ main {
 
 .gallery img {
     object-fit: cover;
-    width: 100%;
+    width: 100%; /* important for object-fit to work. */
+    transition: 0.25s opacity;
 }
 
-.gallery img:hover { cursor: pointer; }
+.gallery img:hover { 
+    cursor: pointer; 
+    opacity: 0.8;
+}
 
 
 .overlay {
@@ -98,6 +102,25 @@ button:hover {
 .left-button:before {
     content: "◂";
 }
+
+.image-details {
+    display: flex;
+    flex-direction:column;
+    row-gap: 0.5rem;
+    position: absolute;
+    bottom:0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.398);
+    width: 100%;
+    padding: 0.5rem 2rem;
+    transition: opacity 0.5s;
+}
+
+.image-details h3 { 
+    font-size: 0.9rem; 
+    border-bottom: 1px solid rgba(245, 222, 179, 0.329);
+}
+.image-details p { font-size: 0.7rem; }
 
 @media screen and (max-width: 768px) {
     main {

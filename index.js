@@ -1,8 +1,8 @@
 const imgDb = [
-    {title: "an unnamed desert",
+    {title: "whispering wasteland",
     desc: "an obscure minish cap concept art",
     src: "images/desert.jpg"},
-    {title: "the emerald",
+    {title: "hidden gems",
     desc: "an obscure minish cap concept art (he goes :o)",
     src: "images/green-crystal.jpg"},
     {title: "the tiny life",
@@ -94,6 +94,30 @@ function openShowbox(img) {
     if (imgDb.length > 1 && currentImgIndex >= 1) arrowBtns.append(leftBtn);
     if (currentImgIndex + 1 != imgDb.length) arrowBtns.append(rightBtn);
     overlayDiv.append(arrowBtns); 
+
+    let imageDetails = document.createElement('div');
+    imageDetails.classList.add('image-details');
+
+    let imageTitle = document.createElement('h3');
+    imageTitle.innerText = img.title;
+
+    let imageDesc = document.createElement('p');
+    imageDesc.innerText = img.desc;
+
+    imageDetails.append(imageTitle);
+    imageDetails.append(imageDesc);
+    overlayDiv.append(imageDetails);
+
+    setTimeout(() => {
+        imageDetails.style.opacity = 0;
+    }, 3000);
+    
+    currentImg.onmouseover = function() {
+        imageDetails.style.opacity = 1;
+    }
+    currentImg.onmouseout = function() {
+        imageDetails.style.opacity = 0;
+    }
 }
 
 document.onkeydown = function(e) {
