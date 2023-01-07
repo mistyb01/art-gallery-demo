@@ -110,7 +110,8 @@ button:hover {
     position: absolute;
     bottom:0px;
     color: white;
-    background-color: rgba(0, 0, 0, 0.398);
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(20,19,45,0.6773575641193977) 51%, rgba(36,37,54,0.01629313834908963) 100%); 
     width: 100%;
     padding: 0.5rem 2rem;
     transition: opacity 0.5s;
