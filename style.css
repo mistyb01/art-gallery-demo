@@ -12,6 +12,7 @@ main {
     width: 70%;
     height: auto;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .gallery {

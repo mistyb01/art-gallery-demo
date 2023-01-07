@@ -1,36 +1,36 @@
 const imgDb = [
-    {title: "",
-    desc: "",
+    {title: "an unnamed desert",
+    desc: "an obscure minish cap concept art",
     src: "images/desert.jpg"},
-    {title: "",
-    desc: "",
+    {title: "the emerald",
+    desc: "an obscure minish cap concept art (he goes :o)",
     src: "images/green-crystal.jpg"},
-    {title: "",
-    desc: "",
+    {title: "the tiny life",
+    desc: "minish cap promo art",
     src: "images/minish-village.jpg"},
-    {title: "",
-    desc: "",
+    {title: "cloud tops",
+    desc: "minish cap promo art",
     src: "images/sky-palace.jpg"},
-    {title: "",
-    desc: "",
+    {title: "temple of droplets",
+    desc: "an obscure minish cap concept art",
     src: "images/slidey.jpg"},
-    {title: "",
-    desc: "",
+    {title: "forest haven",
+    desc: "wind waker concept art",
     src: "images/forest-haven.jpg"},
-    {title: "",
-    desc: "",
+    {title: "he dance",
+    desc: "an oracle of ages cutscene",
     src: "images/hedance.jpg"},
-    {title: "",
-    desc: "",
+    {title: "sword goes skyward",
+    desc: "a cool rare link",
     src: "images/skyward.jpg"},
-    {title: "",
-    desc: "",
+    {title: "the master sword",
+    desc: "based terada art",
     src: "images/terada1.jpg"},
-    {title: "",
-    desc: "",
+    {title: "link vs ?",
+    desc: "based terada art",
     src: "images/terada2.jpg"},
-    {title: "",
-    desc: "",
+    {title: "link being tiny",
+    desc: "another rare minish cap concept (look at he go..)",
     src: "images/tiny.jpg"}
 ]
 
@@ -64,12 +64,15 @@ overlayDiv.addEventListener('click', (e) => {
         displayOverlay = false;
         overlayDiv.replaceChildren();
         overlayDiv.style.display = 'none';
+        document.body.style.overflowY = 'scroll';
     }
 })
 
 function openShowbox(img) {
     displayOverlay =  true;
     overlayDiv.replaceChildren();
+    document.body.style.overflowY = 'hidden';
+
     let currentImg = document.createElement('img');
     currentImg.src = img.src;
 
